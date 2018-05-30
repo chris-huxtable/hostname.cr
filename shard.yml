@@ -1,13 +1,13 @@
 name: hostname
 version: 0.1.0
 
+crystal: 0.24.2
+
 authors:
   - Chris Huxtable <chris@huxtable.ca>
 
 description: |
   Encapsulates hostnames making them more convenient
-
-crystal: 0.24.2
 
 dependencies:
   ip_address:
