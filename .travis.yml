@@ -1,6 +1,7 @@
 language: crystal
 
 script:
+  - shards update
   - crystal spec
   - crystal docs
 
