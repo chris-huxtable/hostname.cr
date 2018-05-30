@@ -15,6 +15,7 @@
 require "socket"
 require "ip_address"
 
+
 class Hostname
 
 	NAME_REGEX = /^[a-z0-9](?:[a-z0-9]|[_\-]+[a-z0-9])*$/
@@ -348,8 +349,7 @@ class Hostname
 	end
 
 	# :nodoc:
-	class Invalid < Exception
-	end
+	class Invalid < Exception; end
 
 	# :nodoc:
 	class NotFoundError < Exception

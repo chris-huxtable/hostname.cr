@@ -4,10 +4,13 @@ version: 0.1.0
 authors:
   - Chris Huxtable <chris@huxtable.ca>
 
-development_dependencies:
-  ip_address:
-    github: chris-huxtable/ip_address.cr
+description: |
+  Encapsulates hostnames making them more convenient
 
 crystal: 0.24.2
 
-license: isc
+dependencies:
+  ip_address:
+    github: chris-huxtable/ip_address.cr
+
+license: ISC
