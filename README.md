@@ -22,17 +22,17 @@ require "hostname"
 
 Some samples:
 ```crystal
-	hostname0 = Hostname["example.com"]
-	hostname1 = Hostname["example.com"]?
-	hostname2 = Hostname.new("example.com")
-	hostname3 = Hostname.new?("example.com")
+hostname0 = Hostname["example.com"]
+hostname1 = Hostname["example.com"]?
+hostname2 = Hostname.new("example.com")
+hostname3 = Hostname.new?("example.com")
 
-	an_address = hostname0.address?()
-	adresses = hostname0.addresses()
+an_address = hostname0.address?()
+adresses = hostname0.addresses()
 
-	hostname0.each_address() { |address|
-
-	}
+hostname0.each_address() { |address|
+	puts address
+}
 ```
 
 
