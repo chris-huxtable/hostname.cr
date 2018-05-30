@@ -1,4 +1,7 @@
 # hostname.cr
+[![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://chris-huxtable.github.io/hostname.cr/)
+[![GitHub release](https://img.shields.io/github/release/chris-huxtable/hostname.cr.svg)](https://github.com/chris-huxtable/hostname.cr/releases)
+[![Build Status](https://travis-ci.org/chris-huxtable/hostname.cr.svg?branch=master)](https://travis-ci.org/chris-huxtable/hostname.cr)
 
 Encapsulates hostnames making them more convenient.
 
