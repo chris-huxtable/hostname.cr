@@ -15,41 +15,55 @@
 require "./spec_helper"
 
 
-private def should_be_valid(string : String, equals : String = string, ) : Nil
-	Hostname[string]?.to_s.should eq(equals)
+private def should_be_valid(string : String, expected : String = string, file = __FILE__, line = __LINE__) : Nil
+	it "parses #{string}", file, line do
+		Hostname[string]?.to_s.should eq(expected)
+	end
 end
 
-private def should_not_be_valid(string : String) : Nil
-	Hostname[string]?.should be_nil
-end
-
-
-private def should_be_tld(string : String) : Nil
-	Hostname[string].tld?.should be_true
-end
-
-private def should_not_be_tld(string : String) : Nil
-	Hostname[string].tld?.should_not be_true
+private def should_not_be_valid(string : String, file = __FILE__, line = __LINE__) : Nil
+	it "parses #{string}", file, line do
+		Hostname[string]?.should be_nil
+	end
 end
 
 
-private def should_be_subdomain(string : String, other : String) : Nil
-	Hostname[string].subdomain?(Hostname[other]).should be_true
+private def should_be_tld(string : String, file = __FILE__, line = __LINE__) : Nil
+	it "should be top level domain #{string}", file, line do
+		Hostname[string].tld?.should be_true
+	end
 end
 
-private def should_not_be_subdomain(string : String, other : String) : Nil
-	Hostname[string].subdomain?(Hostname[other]).should_not be_true
+private def should_not_be_tld(string : String, file = __FILE__, line = __LINE__) : Nil
+	it "should not be top level domain #{string}", file, line do
+		Hostname[string].tld?.should_not be_true
+	end
 end
 
 
-private def should_cmp(string : String, other : String, value : Int) : Nil
-	(Hostname[string] <=> Hostname[other]).should eq(value)
+private def should_be_subdomain(string : String, other : String, file = __FILE__, line = __LINE__) : Nil
+	it "#{string} should be a subdomain of #{other}", file, line do
+		Hostname[string].subdomain?(Hostname[other]).should be_true
+	end
+end
+
+private def should_not_be_subdomain(string : String, other : String, file = __FILE__, line = __LINE__) : Nil
+	it "#{string} should not be a subdomain of #{other}", file, line do
+		Hostname[string].subdomain?(Hostname[other]).should_not be_true
+	end
+end
+
+
+private def should_cmp(string : String, other : String, value : Int, file = __FILE__, line = __LINE__) : Nil
+	it "#{string} should compare with #{other} to be #{value}", file, line do
+		(Hostname[string] <=> Hostname[other]).should eq(value)
+	end
 end
 
 
 describe Hostname do
 
-	it "takes strings" do
+	describe "takes strings" do
 		should_be_valid("test.test")
 		should_be_valid("example.com")
 		should_be_valid("example.com.", "example.com")
@@ -58,7 +72,7 @@ describe Hostname do
 		should_be_valid("crystal-lang.org.", "crystal-lang.org")
 	end
 
-	it "recognizes invalid addresses" do
+	describe "recognizes invalid addresses" do
 		should_not_be_valid("*.example.com")
 
 		should_not_be_valid("*")
@@ -70,9 +84,10 @@ describe Hostname do
 		should_not_be_valid(".a")
 		should_not_be_valid(" .a")
 		should_not_be_valid(".a.")
+		should_not_be_valid("a.b..c")
 	end
 
-	it "handles long lengths" do
+	describe "handles long lengths" do
 		should_be_valid("test.test.test.test.t.e.s.t.test")
 		should_be_valid("1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa")
 
@@ -86,7 +101,7 @@ describe Hostname do
 		should_not_be_valid(("123456789." * 25) + "abcd")
 	end
 
-	it "handles numbers characters" do
+	describe "handles numbers characters" do
 		(0..9).each() { |n|
 			n = n.to_s()
 			should_be_valid("#{n}.com")
@@ -97,7 +112,7 @@ describe Hostname do
 		}
 	end
 
-	it "handles special characters" do
+	describe "handles special characters" do
 		"@!#$%^&()'\"+=`~".each_char() { |char|
 			should_not_be_valid("#{char}.com")
 			should_not_be_valid("example#{char}.com")
@@ -118,7 +133,7 @@ describe Hostname do
 		}
 	end
 
-	it "accurately represents levels" do
+	describe "accurately represents levels" do
 		repeat = "a."
 		string = String.new()
 		(0..125).each() { |n|
@@ -130,7 +145,7 @@ describe Hostname do
 
 	end
 
-	it "accurately represents levels" do
+	describe "accurately represents levels" do
 		should_be_tld("com")
 		should_be_tld("ca")
 
@@ -139,7 +154,7 @@ describe Hostname do
 		should_not_be_tld("examples.com")
 	end
 
-	it "accurately detects subdomain" do
+	describe "accurately detects subdomain" do
 		should_be_subdomain("example.com", "www.example.com")
 		should_be_subdomain("example.com", "www.example.example.com")
 		should_not_be_subdomain("example.com", "example.com")
@@ -149,7 +164,7 @@ describe Hostname do
 		should_not_be_subdomain("examples.com", "www.example.com")
 	end
 
-	it "accurately compares" do
+	describe "accurately compares" do
 		should_cmp("example.com", "www.example.com", -1)
 		should_cmp("example.com", "example.com", 0)
 		should_cmp("www.example.com", "example.com", 1)
@@ -158,7 +173,7 @@ describe Hostname do
 		should_cmp("examples.com", "www.example.com", -1)
 	end
 
-	it "resolves" do
+	describe "resolves" do
 		Hostname["example.com"].each_address() { |address|
 			address.to_s.should eq("93.184.216.34")
 		}
