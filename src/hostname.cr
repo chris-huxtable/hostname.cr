@@ -18,10 +18,6 @@ require "ip_address"
 
 class Hostname
 
-	NAME_REGEX = /^[a-z0-9](?:[a-z0-9]|[_\-]+[a-z0-9])*$/
-	ALPHA_REGEX = /[a-z]+/
-
-
 	# MARK: - Initializer
 
 	# :nodoc:
@@ -50,27 +46,18 @@ class Hostname
 	# Expects an hostname like "example.com" or "example.com.".
 	#
 	# Returns: `nil` when the input is malformed.
-	#
-	# TODO: Rework without Regex.
 	def self.[]?(string : String) : self?
 		return new?(string)
 	end
 
 	# ditto
 	def self.new?(string : String) : self?
-		return nil if ( string.empty?() )
-		return nil if ( string.starts_with?('.'))
+		parts = Parser.parse(string)
+		return nil if ( !parts )
 
-		if ( string.ends_with?('.') )
-			string = string.chomp('.')
-			return nil if ( string.empty? )
-			return nil if ( string.ends_with?('.') )
-		end
-
-		return nil if ( string.size() > 253 )
-		string = string.downcase()
-
-		return new?(string.split('.'))
+		instance = self.allocate
+		instance.initialize(parts)
+		return instance
 	end
 
 	# Constructs a new `Hostname` by interpreting the contents of an `Array` of `String`s.
@@ -87,26 +74,9 @@ class Hostname
 	# Expects input like: ```["example", "com"]```.
 	#
 	# Returns: `nil` when the input is malformed.
-	#
-	# TODO: Rework without Regex.
 	def self.new?(parts : Array(String))
-		return nil if ( parts.empty?() )
-		return nil if ( parts.size() > 127 )
-
-		length = parts.reduce(-1) { |memo, part| memo + part.size + 1 }
-		return nil if ( length < 1 || length > 253 )
-
-		alpha = false
-		parts.each_with_index() { |part, index|
-			return nil if ( part.empty? )
-			return nil if ( part.size > 63 )
-			return nil if ( !NAME_REGEX.match(part) )
-			alpha = true if ( !alpha && ALPHA_REGEX.match(part) )
-		}
-
-		# Avoid IP Addresses
-		# TODO: Improve IP address check.
-		return nil if ( !alpha && parts.size == 4 )
+		parts = Parser.validate(parts)
+		return nil if ( !parts )
 
 		instance = self.allocate
 		instance.initialize(parts)
@@ -360,5 +330,123 @@ class Hostname
 
 	# :nodoc:
 	class ResolutionError < Exception; end
+
+	class Parser
+
+		SEPARATOR = '.'
+		@char : Char?
+
+		def self.parse(string : String) : Array(String)?
+			parser = new(string)
+			return parser.parse()
+		end
+
+		def self.validate(parts : Array(String)) : Array(String)?
+			parts = validate_sizes(parts)
+			return nil if ( !parts )
+
+			parts = validate_parts(parts)
+			return nil if ( !parts )
+
+			return parts
+		end
+
+
+		# MARK: - Initializer
+
+		def initialize(string : String)
+			@cursor = Char::Reader.new(string)
+			@char = @cursor.current_char()
+		end
+
+
+		# MARK: - Utilities
+
+		def self.validate_sizes(parts : Array(String)) : Array(String)?
+			return nil if ( parts.empty?() )
+			return nil if ( parts.size() > 127 )
+
+			length = parts.reduce(0) { |memo, part| memo + part.size }
+			length += (parts.size - 1)
+			return nil if ( length < 1 || length > 253 )
+
+			return parts
+		end
+
+		def self.validate_parts(parts : Array(String)) : Array(String)?
+			parts.each() { |part|
+				return nil if ( part.empty? )
+				return nil if ( part.size > 63 )
+
+				return nil if part[0].ascii_alphanumeric?
+				return nil if part[-1].ascii_alphanumeric?
+
+				part.each_char_with_index() { |char, index|
+					return nil if ( !char.ascii_alphanumeric? && char != '-' && char != '_' )
+				}
+			}
+
+			return parts
+		end
+
+		# Parse a whole hostname.
+		protected def parse() : Array(String)?
+			parts = Array(String).new()
+
+			while ( part = parse_part() )
+				parts << part
+			end
+
+			return nil if !at_end?()
+			return Parser.validate_sizes(parts)
+		end
+
+		# Parse a part of the hostname.
+		protected def parse_part() : String?
+			return nil if at_end?()
+
+			string = String.build() { |buffer|
+				char = current?()
+
+				return nil if ( !char )
+				return nil if ( char == SEPARATOR )
+				return nil if !char.ascii_alphanumeric?
+				buffer << char.downcase
+
+				while ( char = self.next?() )
+					break if ( char == SEPARATOR )
+					return nil if !char.ascii_alphanumeric? && char != '-' && char != '_'
+					buffer << char.downcase
+				end
+				self.next?
+			}
+			return nil if ( string.size < 1 )
+			return nil if ( string.size > 63 )
+
+			return nil if !string[0].ascii_alphanumeric?
+			return nil if !string[-1].ascii_alphanumeric?
+
+			return string
+		end
+
+		# Is the cursor at the end?
+		protected def at_end?() : Bool
+			return !@cursor.has_next?
+		end
+
+		# What is the current character.
+		protected def current?() Char?
+			return @char
+		end
+
+		# Move to the next position, return the character or `nil`.
+		protected def next?() : Char?
+			return @char = nil if at_end?
+			@char = @cursor.next_char()
+			@char = nil if @char == Char::ZERO
+			return @char
+		end
+
+	end
 
 end
