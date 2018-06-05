@@ -1,5 +1,5 @@
 name: hostname
-version: 0.1.0
+version: 0.1.1
 
 crystal: 0.24.2
 
@@ -12,6 +12,5 @@ description: |
 dependencies:
   ip_address:
     github: chris-huxtable/ip_address.cr
-    commit: HEAD
 
 license: ISC

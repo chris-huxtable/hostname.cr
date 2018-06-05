@@ -19,4 +19,3 @@ shards:
 clean:
 	shards prune
 	find . -name ".DS_Store" -depth -exec rm {} \;
-
