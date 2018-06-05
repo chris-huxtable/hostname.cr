@@ -12,5 +12,6 @@ description: |
 dependencies:
   ip_address:
     github: chris-huxtable/ip_address.cr
+    commit: HEAD
 
 license: ISC
