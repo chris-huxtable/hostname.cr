@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.35.1">
+<meta name="crystal_docs.project_version" content="HEAD">
+<meta name="crystal_docs.project_name" content="hostname">
+
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+  <meta name="repository-name" content="hostname">
+  <title>Hostname - hostname HEAD</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          hostname
+        </a>
+      </h1>
+
+      <span class="project-version">
+        HEAD
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="hostname/Hostname" data-name="hostname">
+      <a href="Hostname.html">Hostname</a>
+      
+        <ul>
+  
+  <li class=" " data-id="hostname/Hostname/Parser" data-name="hostname::parser">
+      <a href="Hostname/Parser.html">Parser</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> Hostname
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="Hostname.html">Hostname</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname.cr#L16" target="_blank">
+        hostname.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname/resolve.cr#L19" target="_blank">
+        hostname/resolve.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#[](string:String):self-class-method" class="signature"><strong>.[]</strong>(string : String) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Constructs a new <code><a href="Hostname.html">Hostname</a></code> by interpreting the contents of a <code>String</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#[]?(string:String):self?-class-method" class="signature"><strong>.[]?</strong>(string : String) : <span class="k">self</span>?</a>
+        
+          <div class="summary"><p>Constructs a new <code><a href="Hostname.html">Hostname</a></code> by interpreting the contents of a <code>String</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new(parts:Array(String)):self-class-method" class="signature"><strong>.new</strong>(parts : Array(String)) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Constructs a new <code><a href="Hostname.html">Hostname</a></code> by interpreting the contents of an <code>Array</code> of <code>String</code>s.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new(string:String):self-class-method" class="signature"><strong>.new</strong>(string : String) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Constructs a new <code><a href="Hostname.html">Hostname</a></code> by interpreting the contents of a <code>String</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new?(string:String):self?-class-method" class="signature"><strong>.new?</strong>(string : String) : <span class="k">self</span>?</a>
+        
+          <div class="summary"><p>Constructs a new <code><a href="Hostname.html">Hostname</a></code> by interpreting the contents of a <code>String</code>.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new?(parts:Array(String))-class-method" class="signature"><strong>.new?</strong>(parts : Array(String))</a>
+        
+          <div class="summary"><p>Constructs a new <code><a href="Hostname.html">Hostname</a></code> by interpreting the contents of an <code>Array</code> of <code>String</code>s.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#(other:Hostname):Int-instance-method" class="signature"><strong>#<=></strong>(other : Hostname) : Int</a>
+        
+          <div class="summary"><p>Compares this hostname with another, returning <code>-1</code>, <code>0</code> or <code>+1</code> depending if the hostname is less, equal or greater than the <em>other</em> hostname.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#[](index:Int):String-instance-method" class="signature"><strong>#[]</strong>(index : Int) : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#address(family=Socket::Family::INET,type=Socket::Type::STREAM,protocol=Protocol::IP,timeout=nil):IP::Address-instance-method" class="signature"><strong>#address</strong>(family = <span class="t">Socket</span><span class="t">::</span><span class="t">Family</span><span class="t">::</span><span class="t">INET</span>, type = <span class="t">Socket</span><span class="t">::</span><span class="t">Type</span><span class="t">::</span><span class="t">STREAM</span>, protocol = <span class="t">Protocol</span><span class="t">::</span><span class="t">IP</span>, timeout = <span class="n">nil</span>) : IP::Address</a>
+        
+          <div class="summary"><p>Returns the first <code>IP::Address</code> resolved for the hostname.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#address?(family=Socket::Family::INET,type=Socket::Type::STREAM,protocol=Protocol::IP,timeout=nil):IP::Address?-instance-method" class="signature"><strong>#address?</strong>(family = <span class="t">Socket</span><span class="t">::</span><span class="t">Family</span><span class="t">::</span><span class="t">INET</span>, type = <span class="t">Socket</span><span class="t">::</span><span class="t">Type</span><span class="t">::</span><span class="t">STREAM</span>, protocol = <span class="t">Protocol</span><span class="t">::</span><span class="t">IP</span>, timeout = <span class="n">nil</span>) : IP::Address?</a>
+        
+          <div class="summary"><p>Returns the first <code>IP::Address</code> resolved for the hostname.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#addresses(family=Socket::Family::INET,type=Socket::Type::STREAM,protocol=Protocol::IP,timeout=nil):Array(IP::Address)-instance-method" class="signature"><strong>#addresses</strong>(family = <span class="t">Socket</span><span class="t">::</span><span class="t">Family</span><span class="t">::</span><span class="t">INET</span>, type = <span class="t">Socket</span><span class="t">::</span><span class="t">Type</span><span class="t">::</span><span class="t">STREAM</span>, protocol = <span class="t">Protocol</span><span class="t">::</span><span class="t">IP</span>, timeout = <span class="n">nil</span>) : Array(IP::Address)</a>
+        
+          <div class="summary"><p>Returns an <code>Array</code> of <code>IP::Address</code>es that were resolved for the hostname.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#child(name:String):Hostname-instance-method" class="signature"><strong>#child</strong>(name : String) : Hostname</a>
+        
+          <div class="summary"><p>Creates a new child hostname (subdomain).</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#child?(name:String):Hostname?-instance-method" class="signature"><strong>#child?</strong>(name : String) : Hostname?</a>
+        
+          <div class="summary"><p>Creates a new child hostname (subdomain).</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#each_address(family=Socket::Family::INET,type=Socket::Type::STREAM,protocol=Socket::Protocol::IP,timeout=nil,&)-instance-method" class="signature"><strong>#each_address</strong>(family = <span class="t">Socket</span><span class="t">::</span><span class="t">Family</span><span class="t">::</span><span class="t">INET</span>, type = <span class="t">Socket</span><span class="t">::</span><span class="t">Type</span><span class="t">::</span><span class="t">STREAM</span>, protocol = <span class="t">Socket</span><span class="t">::</span><span class="t">Protocol</span><span class="t">::</span><span class="t">IP</span>, timeout = <span class="n">nil</span>, &)</a>
+        
+          <div class="summary"><p>Yields the <code>IP::Address</code>es that were resolved for the hostname.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#levels:UInt32-instance-method" class="signature"><strong>#levels</strong> : UInt32</a>
+        
+          <div class="summary"><p>Returns the number of levels in the hostname</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#parent(depth:Int=1):Hostname-instance-method" class="signature"><strong>#parent</strong>(depth : Int = <span class="n">1</span>) : Hostname</a>
+        
+          <div class="summary"><p>Creates the parent hostname.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#parent?(depth:Int=1):Hostname?-instance-method" class="signature"><strong>#parent?</strong>(depth : Int = <span class="n">1</span>) : Hostname?</a>
+        
+          <div class="summary"><p>Creates the parent hostname.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#parts:Array(String)-instance-method" class="signature"><strong>#parts</strong> : Array(String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#resolve(family=Socket::Family::INET,type=Socket::Type::STREAM,protocol=Socket::Protocol::IP,timeout=nil,&)-instance-method" class="signature"><strong>#resolve</strong>(family = <span class="t">Socket</span><span class="t">::</span><span class="t">Family</span><span class="t">::</span><span class="t">INET</span>, type = <span class="t">Socket</span><span class="t">::</span><span class="t">Type</span><span class="t">::</span><span class="t">STREAM</span>, protocol = <span class="t">Socket</span><span class="t">::</span><span class="t">Protocol</span><span class="t">::</span><span class="t">IP</span>, timeout = <span class="n">nil</span>, &)</a>
+        
+          <div class="summary"><p>Yields the <code>IP::Address</code>es, <code>Socket::Type</code>s, and <code>Socket:: Protocol</code>s that were resolved for the hostname.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#size:UInt32-instance-method" class="signature"><strong>#size</strong> : UInt32</a>
+        
+          <div class="summary"><p>Returns the number of characters in the whole hostname.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#subdomain?(other:Hostname,fqn:Bool=false):Bool-instance-method" class="signature"><strong>#subdomain?</strong>(other : Hostname, fqn : Bool = <span class="n">false</span>) : Bool</a>
+        
+          <div class="summary"><p>Indicates if the reciever is a subdomain of the given hostname.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#tld?(*tlds:String):Bool-instance-method" class="signature"><strong>#tld?</strong>(*tlds : String) : Bool</a>
+        
+          <div class="summary"><p>Indicates if the domain has one of the given top level domains.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#tld?:Bool-instance-method" class="signature"><strong>#tld?</strong> : Bool</a>
+        
+          <div class="summary"><p>Indicates if the domain is a top level domain.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#tld?(tlds:Enumerable(String)):Bool-instance-method" class="signature"><strong>#tld?</strong>(tlds : Enumerable(String)) : Bool</a>
+        
+          <div class="summary"><p>Indicates if the domain has one of the given top level domains.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#tld?(tld:String):Bool-instance-method" class="signature"><strong>#tld?</strong>(tld : String) : Bool</a>
+        
+          <div class="summary"><p>Indicates if the domain has the given top level domain.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_s(fqn:Bool,io:IO):Nil-instance-method" class="signature"><strong>#to_s</strong>(fqn : Bool, io : IO) : Nil</a>
+        
+          <div class="summary"><p>Appends the string representation of this hostname to the given <code>IO</code> with the option of making the hostname fully qualified.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_s(io:IO):Nil-instance-method" class="signature"><strong>#to_s</strong>(io : IO) : Nil</a>
+        
+          <div class="summary"><p>Appends the string representation of this hostname to the given <code>IO</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_s(fqn:Bool):String-instance-method" class="signature"><strong>#to_s</strong>(fqn : Bool) : String</a>
+        
+          <div class="summary"><p>Returns the string representation of this hostname with the option of making the hostname fully qualified.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="[](string:String):self-class-method">
+      <div class="signature">
+        
+        def self.<strong>[]</strong>(string : String) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#[](string:String):self-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Constructs a new <code><a href="Hostname.html">Hostname</a></code> by interpreting the contents of a <code>String</code>.</p>
+
+<p>Expects an hostname like "example.com" or "example.com.".</p>
+
+<p>Raises: <code>MalformedError</code> when the input is malformed.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname.cr#L32" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="[]?(string:String):self?-class-method">
+      <div class="signature">
+        
+        def self.<strong>[]?</strong>(string : String) : <span class="k">self</span>?
+
+        <a class="method-permalink" href="#[]?(string:String):self?-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Constructs a new <code><a href="Hostname.html">Hostname</a></code> by interpreting the contents of a <code>String</code>.</p>
+
+<p>Expects an hostname like "example.com" or "example.com.".</p>
+
+<p>Returns: <code>nil</code> when the input is malformed.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname.cr#L46" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(parts:Array(String)):self-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(parts : Array(String)) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#new(parts:Array(String)):self-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Constructs a new <code><a href="Hostname.html">Hostname</a></code> by interpreting the contents of an <code>Array</code> of <code>String</code>s.</p>
+
+<p>Expects input like: <code></code><code>["example", "com"]</code><code></code>.</p>
+
+<p>Raises: <code>MalformedError</code> when the input is malformed.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname.cr#L65" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(string:String):self-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(string : String) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#new(string:String):self-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Constructs a new <code><a href="Hostname.html">Hostname</a></code> by interpreting the contents of a <code>String</code>.</p>
+
+<p>Expects an hostname like "example.com" or "example.com.".</p>
+
+<p>Raises: <code>MalformedError</code> when the input is malformed.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname.cr#L37" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new?(string:String):self?-class-method">
+      <div class="signature">
+        
+        def self.<strong>new?</strong>(string : String) : <span class="k">self</span>?
+
+        <a class="method-permalink" href="#new?(string:String):self?-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Constructs a new <code><a href="Hostname.html">Hostname</a></code> by interpreting the contents of a <code>String</code>.</p>
+
+<p>Expects an hostname like "example.com" or "example.com.".</p>
+
+<p>Returns: <code>nil</code> when the input is malformed.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname.cr#L51" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="new?(parts:Array(String))-class-method">
+      <div class="signature">
+        
+        def self.<strong>new?</strong>(parts : Array(String))
+
+        <a class="method-permalink" href="#new?(parts:Array(String))-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Constructs a new <code><a href="Hostname.html">Hostname</a></code> by interpreting the contents of an <code>Array</code> of <code>String</code>s.</p>
+
+<p>Expects input like: <code></code><code>["example", "com"]</code><code></code>.</p>
+
+<p>Returns: <code>nil</code> when the input is malformed.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname.cr#L74" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="(other:Hostname):Int-instance-method">
+      <div class="signature">
+        
+        def <strong><=></strong>(other : <a href="Hostname.html">Hostname</a>) : Int
+
+        <a class="method-permalink" href="#(other:Hostname):Int-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Compares this hostname with another, returning <code>-1</code>, <code>0</code> or <code>+1</code> depending if the
+hostname is less, equal or greater than the <em>other</em> hostname.</p>
+
+<p>This compares the top level alphabetically. If they match the next next level is tried.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname.cr#L149" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="[](index:Int):String-instance-method">
+      <div class="signature">
+        
+        def <strong>[]</strong>(index : Int) : String
+
+        <a class="method-permalink" href="#[](index:Int):String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname.cr#L101" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="address(family=Socket::Family::INET,type=Socket::Type::STREAM,protocol=Protocol::IP,timeout=nil):IP::Address-instance-method">
+      <div class="signature">
+        
+        def <strong>address</strong>(family = <span class="t">Socket</span><span class="t">::</span><span class="t">Family</span><span class="t">::</span><span class="t">INET</span>, type = <span class="t">Socket</span><span class="t">::</span><span class="t">Type</span><span class="t">::</span><span class="t">STREAM</span>, protocol = <span class="t">Protocol</span><span class="t">::</span><span class="t">IP</span>, timeout = <span class="n">nil</span>) : IP::Address
+
+        <a class="method-permalink" href="#address(family=Socket::Family::INET,type=Socket::Type::STREAM,protocol=Protocol::IP,timeout=nil):IP::Address-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the first <code>IP::Address</code> resolved for the hostname.</p>
+
+<p>Raises: <code>nil</code> if no address is found.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname/resolve.cr#L27" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="address?(family=Socket::Family::INET,type=Socket::Type::STREAM,protocol=Protocol::IP,timeout=nil):IP::Address?-instance-method">
+      <div class="signature">
+        
+        def <strong>address?</strong>(family = <span class="t">Socket</span><span class="t">::</span><span class="t">Family</span><span class="t">::</span><span class="t">INET</span>, type = <span class="t">Socket</span><span class="t">::</span><span class="t">Type</span><span class="t">::</span><span class="t">STREAM</span>, protocol = <span class="t">Protocol</span><span class="t">::</span><span class="t">IP</span>, timeout = <span class="n">nil</span>) : IP::Address?
+
+        <a class="method-permalink" href="#address?(family=Socket::Family::INET,type=Socket::Type::STREAM,protocol=Protocol::IP,timeout=nil):IP::Address?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the first <code>IP::Address</code> resolved for the hostname.</p>
+
+<p>Returns: <code>nil</code> if no address is found.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname/resolve.cr#L34" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="addresses(family=Socket::Family::INET,type=Socket::Type::STREAM,protocol=Protocol::IP,timeout=nil):Array(IP::Address)-instance-method">
+      <div class="signature">
+        
+        def <strong>addresses</strong>(family = <span class="t">Socket</span><span class="t">::</span><span class="t">Family</span><span class="t">::</span><span class="t">INET</span>, type = <span class="t">Socket</span><span class="t">::</span><span class="t">Type</span><span class="t">::</span><span class="t">STREAM</span>, protocol = <span class="t">Protocol</span><span class="t">::</span><span class="t">IP</span>, timeout = <span class="n">nil</span>) : Array(IP::Address)
+
+        <a class="method-permalink" href="#addresses(family=Socket::Family::INET,type=Socket::Type::STREAM,protocol=Protocol::IP,timeout=nil):Array(IP::Address)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns an <code>Array</code> of <code>IP::Address</code>es that were resolved for the hostname.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname/resolve.cr#L41" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="child(name:String):Hostname-instance-method">
+      <div class="signature">
+        
+        def <strong>child</strong>(name : String) : <a href="Hostname.html">Hostname</a>
+
+        <a class="method-permalink" href="#child(name:String):Hostname-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates a new child hostname (subdomain).</p>
+
+<p>Raises: <code>MalformedError</code> if the hostname is malformed.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname.cr#L188" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="child?(name:String):Hostname?-instance-method">
+      <div class="signature">
+        
+        def <strong>child?</strong>(name : String) : <a href="Hostname.html">Hostname</a>?
+
+        <a class="method-permalink" href="#child?(name:String):Hostname?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates a new child hostname (subdomain).</p>
+
+<p>Returns: <code>nil</code> if the hostname is malformed.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname.cr#L195" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="each_address(family=Socket::Family::INET,type=Socket::Type::STREAM,protocol=Socket::Protocol::IP,timeout=nil,&)-instance-method">
+      <div class="signature">
+        
+        def <strong>each_address</strong>(family = <span class="t">Socket</span><span class="t">::</span><span class="t">Family</span><span class="t">::</span><span class="t">INET</span>, type = <span class="t">Socket</span><span class="t">::</span><span class="t">Type</span><span class="t">::</span><span class="t">STREAM</span>, protocol = <span class="t">Socket</span><span class="t">::</span><span class="t">Protocol</span><span class="t">::</span><span class="t">IP</span>, timeout = <span class="n">nil</span>, &)
+
+        <a class="method-permalink" href="#each_address(family=Socket::Family::INET,type=Socket::Type::STREAM,protocol=Socket::Protocol::IP,timeout=nil,&)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Yields the <code>IP::Address</code>es that were resolved for the hostname.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname/resolve.cr#L50" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="levels:UInt32-instance-method">
+      <div class="signature">
+        
+        def <strong>levels</strong> : UInt32
+
+        <a class="method-permalink" href="#levels:UInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the number of levels in the hostname</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname.cr#L94" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="parent(depth:Int=1):Hostname-instance-method">
+      <div class="signature">
+        
+        def <strong>parent</strong>(depth : Int = <span class="n">1</span>) : <a href="Hostname.html">Hostname</a>
+
+        <a class="method-permalink" href="#parent(depth:Int=1):Hostname-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates the parent hostname.</p>
+
+<p>Raises: <code>Enumerable::EmptyError</code> if the hostname is a Top-Level-Domain.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname.cr#L172" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="parent?(depth:Int=1):Hostname?-instance-method">
+      <div class="signature">
+        
+        def <strong>parent?</strong>(depth : Int = <span class="n">1</span>) : <a href="Hostname.html">Hostname</a>?
+
+        <a class="method-permalink" href="#parent?(depth:Int=1):Hostname?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates the parent hostname.</p>
+
+<p>Returns: <code>nil</code> if the hostname is a Top-Level-Domain.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname.cr#L180" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="parts:Array(String)-instance-method">
+      <div class="signature">
+        
+        def <strong>parts</strong> : Array(String)
+
+        <a class="method-permalink" href="#parts:Array(String)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname.cr#L86" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="resolve(family=Socket::Family::INET,type=Socket::Type::STREAM,protocol=Socket::Protocol::IP,timeout=nil,&)-instance-method">
+      <div class="signature">
+        
+        def <strong>resolve</strong>(family = <span class="t">Socket</span><span class="t">::</span><span class="t">Family</span><span class="t">::</span><span class="t">INET</span>, type = <span class="t">Socket</span><span class="t">::</span><span class="t">Type</span><span class="t">::</span><span class="t">STREAM</span>, protocol = <span class="t">Socket</span><span class="t">::</span><span class="t">Protocol</span><span class="t">::</span><span class="t">IP</span>, timeout = <span class="n">nil</span>, &)
+
+        <a class="method-permalink" href="#resolve(family=Socket::Family::INET,type=Socket::Type::STREAM,protocol=Socket::Protocol::IP,timeout=nil,&)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Yields the <code>IP::Address</code>es, <code>Socket::Type</code>s, and <code>Socket:: Protocol</code>s that were resolved for the hostname.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname/resolve.cr#L57" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="size:UInt32-instance-method">
+      <div class="signature">
+        
+        def <strong>size</strong> : UInt32
+
+        <a class="method-permalink" href="#size:UInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the number of characters in the whole hostname.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname.cr#L89" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="subdomain?(other:Hostname,fqn:Bool=false):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>subdomain?</strong>(other : <a href="Hostname.html">Hostname</a>, fqn : Bool = <span class="n">false</span>) : Bool
+
+        <a class="method-permalink" href="#subdomain?(other:Hostname,fqn:Bool=false):Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Indicates if the reciever is a subdomain of the given hostname.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname.cr#L129" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="tld?(*tlds:String):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>tld?</strong>(*tlds : String) : Bool
+
+        <a class="method-permalink" href="#tld?(*tlds:String):Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Indicates if the domain has one of the given top level domains.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname.cr#L119" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="tld?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>tld?</strong> : Bool
+
+        <a class="method-permalink" href="#tld?:Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Indicates if the domain is a top level domain.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname.cr#L106" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="tld?(tlds:Enumerable(String)):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>tld?</strong>(tlds : Enumerable(String)) : Bool
+
+        <a class="method-permalink" href="#tld?(tlds:Enumerable(String)):Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Indicates if the domain has one of the given top level domains.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname.cr#L124" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="tld?(tld:String):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>tld?</strong>(tld : String) : Bool
+
+        <a class="method-permalink" href="#tld?(tld:String):Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Indicates if the domain has the given top level domain.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname.cr#L114" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_s(fqn:Bool,io:IO):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>to_s</strong>(fqn : Bool, io : IO) : Nil
+
+        <a class="method-permalink" href="#to_s(fqn:Bool,io:IO):Nil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Appends the string representation of this hostname to the given <code>IO</code> with the option
+of making the hostname fully qualified.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname.cr#L214" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_s(io:IO):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>to_s</strong>(io : IO) : Nil
+
+        <a class="method-permalink" href="#to_s(io:IO):Nil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Appends the string representation of this hostname to the given <code>IO</code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname.cr#L208" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_s(fqn:Bool):String-instance-method">
+      <div class="signature">
+        
+        def <strong>to_s</strong>(fqn : Bool) : String
+
+        <a class="method-permalink" href="#to_s(fqn:Bool):String-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the string representation of this hostname with the option of making the
+hostname fully qualified.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/chris-huxtable/hostname.cr/blob/da0e5c4d5e1168d7cc5760fb7c7c5c9b05eccb54/src/hostname.cr#L221" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
